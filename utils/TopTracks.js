@@ -2,7 +2,7 @@ import {StyleSheet, View, Text, SafeAreaView, FlatList, Image} from 'react-nativ
 import { Themes } from '../assets/Themes';
 import Song from './Song'
 
-export default function TopTracks({tracks}) {
+export default function TopTracks({tracks, navigation}) {
     const renderItem =({item, index}) => (
         <Song 
           id={index+1}
@@ -11,6 +11,9 @@ export default function TopTracks({tracks}) {
           artist={item.artists[0].name}
           albumName={item.album.name}
           duration={item.duration_ms}
+          previewUrl={item.preview_url}
+          detailsUrl={item.external_urls.spotify}
+          navigation={navigation}
         />
       );
 
